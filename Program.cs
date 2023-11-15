@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add DbContext to acess MySQL
 var connectionString = builder.Configuration.GetConnectionString("MySQL");
-builder.Services.AddDbContext<EmpresaContext>(options => options.UseMySql(connectionString));
+builder.Services.AddDbContext<EmpresaContext>(options => options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 11))));
 
 // Add services to the container.
 
