@@ -9,6 +9,8 @@ namespace apiMotorcycle.Context
 {
     public class EmpresaContext : DbContext
     {
-        public DbSet<Empresas> Empresa { get; set; }
+        public  EmpresaContext(DbContextOptions options) : base(options) {}
+
+        public DbSet<Empresas>? Empresa { get; set; }
     }
 }
