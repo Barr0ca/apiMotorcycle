@@ -31,5 +31,16 @@ namespace apiMotorcycle.Controllers
             
             return empresas;
         }
+
+        [HttpPost]
+        public ActionResult Post(Empresas empresas)
+        {
+            _context.Empresa.Add(empresas);
+            _context.SaveChanges();
+
+            return new CreatedAtRouteResult("empresas",
+                new{id = empresas.ID},
+                empresas);
+        }
     }
 }
