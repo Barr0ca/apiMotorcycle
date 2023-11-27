@@ -21,11 +21,11 @@ namespace apiMotorcycle.Controllers
             _context = context;
         }
 
-        [HttpGet(Name = "empresas")]
+        [HttpGet(Name = "empresa")]
 
         public ActionResult<IEnumerable<Empresas>> Get()
         {
-            var empresas = _context.Empresa.ToList();
+            var empresas = _context.Empresas.ToList();
             if(empresas is null)
                 return NotFound();
             
@@ -33,14 +33,14 @@ namespace apiMotorcycle.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post(Empresas empresas)
+        public ActionResult Post(Empresas empresa)
         {
-            _context.Empresa.Add(empresas);
+            _context.Empresas.Add(empresa);
             _context.SaveChanges();
 
-            return new CreatedAtRouteResult("empresas",
-                new{id = empresas.ID},
-                empresas);
+            return new CreatedAtRouteResult("empresa",
+                new{id = empresa.ID},
+                empresa);
         }
     }
 }

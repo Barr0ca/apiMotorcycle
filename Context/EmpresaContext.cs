@@ -11,6 +11,6 @@ namespace apiMotorcycle.Context
     {
         public  EmpresaContext(DbContextOptions options) : base(options) {}
 
-        public DbSet<Empresas>? Empresa { get; set; }
+        public DbSet<Empresas>? Empresas { get; set; }
     }
 }
